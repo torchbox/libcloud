@@ -314,7 +314,7 @@ class CloudFilesStorageDriver(StorageDriver, OpenStackDriverMixin):
                                            cdn_request=True)
 
         if response.status == httplib.NO_CONTENT:
-            cdn_url = response.headers['x-cdn-uri']
+            cdn_url = response.headers['x-cdn-ssl-uri']
             return cdn_url
         elif response.status == httplib.NOT_FOUND:
             raise ContainerDoesNotExistError(value='',
